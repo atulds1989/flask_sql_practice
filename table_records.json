@@ -1,38 +1,38 @@
 [
   {
-    "ID": 1,
-    "First_name": "ASHISH",
-    "Last_name": "JOHN",
+    "id": 1,
+    "first_name": "ASHISH",
+    "last_name": "JOHN",
     "address": "Indore"
   },
   {
-    "ID": 2,
-    "First_name": "HIMANSH",
-    "Last_name": "DAVID",
+    "id": 2,
+    "first_name": "HIMANSH",
+    "last_name": "DAVID",
     "address": "Bhopal"
   },
   {
-    "ID": 3,
-    "First_name": "Amit",
-    "Last_name": "patel",
+    "id": 3,
+    "first_name": "Amit",
+    "last_name": "patel",
     "address": "Jabalpur"
   },
   {
-    "ID": 4,
-    "First_name": "John",
-    "Last_name": "Doe",
+    "id": 4,
+    "first_name": "John",
+    "last_name": "Doe",
     "address": "New York"
   },
   {
-    "ID": 5,
-    "First_name": "Jane",
-    "Last_name": "Smith",
+    "id": 5,
+    "first_name": "Jane",
+    "last_name": "Smith",
     "address": "Los Angeles"
   },
   {
-    "ID": 6,
-    "First_name": "Bob",
-    "Last_name": "Johnson",
+    "id": 6,
+    "first_name": "Bob",
+    "last_name": "Johnson",
     "address": "Chicago"
   }
 ]

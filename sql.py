@@ -9,7 +9,7 @@ host = os.getenv("host")
 user = os.getenv("root")
 password = os.getenv("password")
 database = os.getenv("database")
-port = os.get_citation("port")
+port = os.getenv("port")
 
 
 
@@ -26,32 +26,70 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 
-mycursor.execute("SELECT * FROM admin")
+table = 'admin'
+
+
+create_table_query = f'''
+CREATE TABLE IF NOT EXISTS {table} (
+    id INT,
+    first_name VARCHAR(20),
+    last_name VARCHAR(20)
+);
+'''
+
+
+mycursor.execute(create_table_query)
+mydb.commit()
+
+
+mycursor.execute(f"select id from {table}")
+existing_case = mycursor.fetchall()
+
+if existing_case:
+    print(f"record already exists")
+else:
+    
+    insert_query = f''' insert into {table} (id, first_name, last_name) values (%s, %s, %s)'''
+
+    values = [
+    (1, 'ASHISH', 'JOHN'),
+    (2, 'HIMANSH', 'DAVID')
+    ]
+
+    mycursor.executemany(insert_query, values)
+    print('record inserted')
+    mydb.commit()
+
+
+
+
+select_query = f"SELECT * FROM {table}"
+
+mycursor.execute(select_query)
 
 myresult = mycursor.fetchall()
-
-
 
 for row in myresult:
     print(row)
 
-# mydb.commit()
+
 
 
 sql = "INSERT INTO admin (ID, FIRST_NAME, LAST_NAME) VALUES (%s, %s,%s)"
 values = (3,"Amit","patel")
 
 mycursor.execute(sql, values)
+print("new record inserted")
 
 
 
 mydb.commit()
 
 
-
+table = 'admin'
 new_column_name = 'address'
-mycursor.execute(f"show columns from {table} like 'address'")
-existing_column = mycursor.fetchone()
+mycursor.execute(f"show columns from {table} like '{new_column_name}'")
+existing_column = mycursor.fetchall()
 
 if existing_column:
     print(f"the column '{new_column_name}' already exists")
@@ -76,5 +114,5 @@ mydb.commit()
 
 # mycursor.execute(sql)
 
-# mydb.commit()
+mydb.commit()
 mydb.close()

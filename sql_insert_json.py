@@ -9,7 +9,7 @@ host = os.getenv("host")
 user = os.getenv("root")
 password = os.getenv("password")
 database = os.getenv("database")
-port = os.get_citation("port")
+port = os.getenv("port")
 
 
 
@@ -23,11 +23,10 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-# Read JSON file
 with open('demoJson.json') as json_file:
     data = json.load(json_file)
 
-# Insert values from JSON into the table
+
 for record in data:
     sql = "INSERT INTO admin (ID, FIRST_NAME, LAST_NAME, address) VALUES (%s, %s, %s, %s)"
     values = (record["ID"], record["FIRST_NAME"], record["LAST_NAME"], record["address"])
@@ -35,7 +34,7 @@ for record in data:
 
 mydb.commit()
 
-# Print the updated table
+
 mycursor.execute("SELECT * FROM admin")
 myresult = mycursor.fetchall()
 for row in myresult:

@@ -13,14 +13,15 @@ def greet():
 
 
 
-def hosting():
-   return "hello this is your host! how can i help you"
-app.add_url_rule('/', 'hostilng', hosting )
+# def hosting():
+#    return "hello this is your host! how can i help you"
+
+# app.add_url_rule('/', 'hostilng', hosting )
 
 
-def gfg():
-   return 'geeksforgeeks'
-app.add_url_rule('/', 'g2g', gfg)
+# def gfg():
+#    return 'geeksforgeeks'
+# app.add_url_rule('/', 'g2g', gfg)
 
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@ host = os.getenv("host")
 user = os.getenv("root")
 password = os.getenv("password")
 database = os.getenv("database")
-port = os.get_citation("port")
+port = os.getenv("port")
 
 
 
@@ -23,12 +23,12 @@ mydb = mysql.connector.connect(
 
 
 mycursor = mydb.cursor()
+table = 'admin'
 
-# Retrieve records from the MySQL table
 mycursor.execute(f"SELECT * FROM {table}")
 myresult = mycursor.fetchall()
 
-# Convert records to a list of dictionaries
+
 records_list = []
 columns = [column[0] for column in mycursor.description]
 
@@ -43,9 +43,9 @@ for row in myresult:
 # print("record list :\n",records_list)
 
 
-# Write records to a JSON file
-# with open('table_records.json', 'w') as json_file:
-#     json.dump(records_list, json_file, indent=2)
+
+with open('table_records.json', 'w') as json_file:
+    json.dump(records_list, json_file, indent=2)
 
 # Optionally, send the JSON file to the server (replace the server_url with the actual server endpoint)
 
