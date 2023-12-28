@@ -5,13 +5,7 @@ import os
 
 load_dotenv()
 
-host = os.getenv("host")
-user = os.getenv("root")
-password = os.getenv("password")
-database = os.getenv("database")
-port = os.getenv("port")
-
-
+hf_key = os.getenv("hf_key")
 
 mydb = mysql.connector.connect(
   host=host,
